@@ -1,0 +1,30 @@
+# Auto-generated README (Round 1)
+
+**Project brief:** Create an asthetic portfolio website for a Aryan Mishra who is a data scientist and web developer.
+is currently studying BS in data science and programming from iit madras and have done bsc hons in physics.
+he has done several projects:
+1. website generation tool : link "https://aryan1411.github.io/web_creator/"
+this tool takes prompt and create a full website and deploy it in git hub pages.
+2. website for school : link "https://aryan1411.github.io/wpcs/" 
+this is a sample website for schools
+3. scientific calculator and todolist : link "https://aryan1411.github.io/scietific-calculator/" 
+4. some ai generated websites like 1. portfolio for doctor link "https://aryan1411.github.io/abhisek/" 2. portfolio website for cooking tutor link "https://aryan1411.github.io/priyanka/" 3. portfolio website for gym instructor link "https://aryan1411.github.io/hero2/" 4. portfolio website for driving instructor link "https://aryan1411.github.io/jyoti/" 
+also have created many projects on python flask and fast api
+his git hub link is "https://github.com/Aryan1411" and linked in address is "www.linkedin.com/in/aryan-mishra1411" 
+make this portfolio website responsive for all screens and make it asthetic and clean, ui with animation in buttons and animations in cards and others. make it eye pleasing and formal. add a nav bar and a footer.
+also  add big nice picture in front of website. use any picture for now. i will later replace it with my picture by replacing the picture link. 
+
+
+
+**Attachments:**
+
+
+**Checks to meet:**
+Repo has MIT license\nREADME.md is professional\nPage displays correctly\nPage loads within 15sec
+
+## Setup
+1. Open `index.html` in a browser.
+2. No build steps required.
+
+## Notes
+This README was generated as a fallback (OpenAI did not return an explicit README).
