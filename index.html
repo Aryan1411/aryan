@@ -1,652 +1,268 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Portfolio of Aryan Mishra — Data Scientist and Web Developer. BS in Data Science and Programming (IIT Madras), BSc (Hons) Physics. View projects, skills, and contact." />
-  <title>Aryan Mishra | Data Scientist & Web Developer</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <title>Aryan Mishra — Portfolio</title>
+  <meta name="description" content="Portfolio of Aryan Mishra. Data-focused developer with skills in Excel, SQL, PostgreSQL, SQLite3, SQLAlchemy, and Data Analysis." />
   <style>
     :root{
-      --bg: #0b1220;
-      --surface: #0f172a;
-      --card: #0d1628;
-      --text: #dbe7ff;
-      --muted: #a4b1cd;
-      --primary: #5b8def;
-      --primary-2: #6ee7b7;
-      --ring: rgba(91,141,239,.35);
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
-      --radius: 14px;
-      --radius-sm: 10px;
-      --maxw: 1200px;
+      --bg: #0f1220;
+      --panel: #151936;
+      --text: #e8eaf6;
+      --muted: #b6bcf0;
+      --accent: #8ab4ff;
+      --accent-2: #7ee7d3;
+      --ring: rgba(138,180,255,0.35);
+      --card: #1a1f44;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
     body{
       margin:0;
-      font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color:var(--text);
-      background:
-        radial-gradient(1200px 600px at 10% -10%, rgba(91,141,239,.18), transparent 60%),
-        radial-gradient(900px 500px at 100% 10%, rgba(110,231,183,.1), transparent 60%),
-        linear-gradient(180deg, #0a1120 0%, #0a1222 60%, #0b1324 100%);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--text);
+      background: radial-gradient(1200px 600px at 10% -10%, #1a1f44 10%, transparent 60%),
+                  radial-gradient(900px 500px at 100% 0%, #18224b 10%, transparent 60%),
+                  var(--bg);
       line-height:1.6;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      scroll-behavior:smooth;
     }
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block}
-    .container{max-width:var(--maxw); margin:0 auto; padding:0 20px}
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
 
-    /* Header / Nav */
     header{
-      position:sticky; top:0; z-index:50;
-      backdrop-filter: saturate(150%) blur(10px);
-      background: rgba(13,22,40,.55);
-      border-bottom: 1px solid rgba(255,255,255,.06);
-      transition: background .3s ease, border-color .3s ease, box-shadow .3s ease;
+      position: sticky; top: 0; z-index: 10;
+      backdrop-filter: saturate(160%) blur(6px);
+      background: linear-gradient(180deg, rgba(15,18,32,0.8), rgba(15,18,32,0.55));
+      border-bottom: 1px solid rgba(138,180,255,0.12);
     }
-    header.scrolled{box-shadow: var(--shadow); background: rgba(13,22,40,.8)}
+    .container{
+      width: min(1100px, 92vw);
+      margin: 0 auto;
+      padding: 0 0 40px 0;
+    }
     .nav{
       display:flex; align-items:center; justify-content:space-between;
-      height:70px;
+      padding: 14px 0;
     }
-    .brand{
-      display:flex; align-items:center; gap:12px; font-weight:800; letter-spacing:.2px;
-    }
-    .brand .logo{
-      width:36px; height:36px; border-radius:12px;
-      background: linear-gradient(135deg, var(--primary), #7aa6ff 60%);
-      box-shadow: 0 8px 20px rgba(91,141,239,.45), inset 0 0 16px rgba(255,255,255,.15);
-      position:relative;
-    }
-    .brand .logo:after{
-      content:"AM";
-      position:absolute; inset:0; display:grid; place-items:center;
-      color:#fff; font-size:12px; font-weight:800; letter-spacing:.5px;
-      text-shadow:0 1px 1px rgba(0,0,0,.3);
-    }
-    .nav-links{
-      display:flex; align-items:center; gap:22px;
-    }
-    .nav-links a{
-      color:var(--muted); font-weight:500; font-size:15px; padding:8px 10px; border-radius:8px;
-      transition: color .2s ease, background .2s ease;
-    }
-    .nav-links a:hover{color:#fff; background: rgba(255,255,255,.05)}
-    .cta-btn{
-      display:inline-flex; align-items:center; gap:10px; padding:10px 16px; border-radius:12px;
-      background: linear-gradient(135deg, var(--primary), #7aa6ff);
-      color:#fff; font-weight:700; letter-spacing:.2px; box-shadow: 0 10px 24px rgba(91,141,239,.45);
-      border:1px solid rgba(255,255,255,.08);
-      transform: translateY(0); transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
-    }
-    .cta-btn:hover{transform: translateY(-2px); filter: brightness(1.05); box-shadow: 0 14px 30px rgba(91,141,239,.55)}
-    .menu-toggle{display:none; background:transparent; border:none; color:var(--text); font-size:24px}
+    .brand{ display:flex; gap:10px; align-items:center; font-weight:700; letter-spacing:.3px;}
+    .brand .dot{ width:10px; height:10px; border-radius:50%; background: linear-gradient(135deg, var(--accent), var(--accent-2)); box-shadow: 0 0 0 6px var(--ring); }
+    nav ul{ display:flex; gap: 18px; list-style:none; padding:0; margin:0;}
+    nav a{ color:var(--text); opacity:.9; font-weight:600; padding:8px 10px; border-radius:8px;}
+    nav a:hover{ background: rgba(138,180,255,0.08); text-decoration:none; }
 
-    /* Hero */
     .hero{
-      display:grid; grid-template-columns: 1.1fr 1fr; gap:40px; align-items:center;
-      padding:70px 0 40px;
-    }
-    .tag{
-      display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; font-size:13px;
-      color:#cfe0ff; background: rgba(91,141,239,.08); border:1px solid rgba(91,141,239,.25)
-    }
-    .hero h1{
-      font-size: clamp(32px, 5vw, 56px); line-height:1.08; margin:12px 0 10px; font-weight:800;
-      letter-spacing:-.3px;
-    }
-    .hero p.lead{
-      color:var(--muted); font-size: clamp(16px, 2.2vw, 18px); max-width: 56ch;
-    }
-    .hero-ctas{display:flex; flex-wrap:wrap; gap:14px; margin-top:22px}
-    .btn-outline{
-      display:inline-flex; align-items:center; gap:10px; padding:10px 16px; border-radius:12px; font-weight:700;
-      color:#dbe7ff; border:1px solid rgba(255,255,255,.15); background: rgba(255,255,255,.02);
-      transition: transform .2s ease, background .2s ease, border-color .2s ease;
-    }
-    .btn-outline:hover{transform: translateY(-2px); background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.25)}
-    .hero-img-wrap{
-      position:relative; aspect-ratio: 4/3; border-radius: 22px; overflow:hidden;
-      box-shadow: 0 30px 60px rgba(0,0,0,.35), 0 0 0 1px rgba(255,255,255,.06) inset;
-      background: radial-gradient(60% 60% at 70% 30%, rgba(110,231,183,.12), transparent), #0b1426;
-    }
-    .hero-img{
-      width:100%; height:100%; object-fit: cover; object-position: center;
-      opacity:.95; transform: scale(1.02);
-      filter: saturate(1.05) contrast(1.02);
-    }
-    .float-badge{
-      position:absolute; right:16px; bottom:16px;
-      padding:10px 14px; border-radius:12px; font-size:13px;
-      background: rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12);
-      box-shadow: 0 8px 24px rgba(0,0,0,.3); backdrop-filter: blur(8px);
-      animation: updown 4s ease-in-out infinite;
-    }
-    @keyframes updown{
-      0%,100%{transform: translateY(0)}
-      50%{transform: translateY(-6px)}
-    }
-
-    .roles{
-      display:flex; align-items:center; gap:8px; color:#bcd1ff; font-weight:600
-    }
-    .cursor{display:inline-block; width:2px; height:1em; background:#bcd1ff; margin-left:2px; animation: blink 1s steps(1) infinite}
-    @keyframes blink{50%{opacity:0}}
-
-    /* Sections */
-    section{padding:70px 0}
-    .section-head{
-      display:flex; align-items:end; justify-content:space-between; gap:20px; margin-bottom:26px;
-    }
-    .section-head h2{font-size: clamp(22px, 3.5vw, 30px); margin:0; letter-spacing:.2px}
-    .section-sub{color:var(--muted); font-size:14px}
-    .grid{
-      display:grid; gap:18px;
-      grid-template-columns: repeat(12, 1fr);
+      display:grid; grid-template-columns: 1.15fr .85fr; gap:32px; padding: 40px 0 20px;
     }
     .card{
-      grid-column: span 4;
-      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-      border:1px solid rgba(255,255,255,.08);
-      border-radius: var(--radius);
-      padding:18px;
-      box-shadow: 0 10px 30px rgba(0,0,0,.25);
-      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease;
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      border: 1px solid rgba(138,180,255,0.14);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 10px 26px rgba(0,0,0,0.25);
     }
-    .card:hover{
-      transform: translateY(-6px);
-      box-shadow: 0 16px 50px rgba(0,0,0,.35);
-      border-color: rgba(91,141,239,.35);
-      background: linear-gradient(180deg, rgba(91,141,239,.06), rgba(255,255,255,.02));
+    .hero h1{ font-size: clamp(28px, 4.5vw, 44px); line-height:1.15; margin: 0 0 10px; }
+    .subtitle{ color: var(--muted); font-size: clamp(14px, 2vw, 18px); margin: 0 0 12px; }
+    .cta{ display:flex; gap:12px; margin-top:16px; flex-wrap: wrap;}
+    .btn{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 10px 14px; border-radius: 10px; font-weight:700; border:1px solid transparent;
+      background: linear-gradient(135deg, var(--accent), #609bff);
+      color:#0b1226; text-shadow: 0 1px 0 rgba(255,255,255,0.25);
+      box-shadow: 0 6px 20px rgba(138,180,255,0.35);
     }
-    .card h3{margin:8px 0 6px; font-size:18px}
-    .card p{margin:0; color:var(--muted); font-size:14px}
-    .card .actions{margin-top:12px; display:flex; gap:10px; flex-wrap:wrap}
-    .card .pill{
-      display:inline-flex; align-items:center; gap:8px; font-size:12px; color:#dbe7ff;
-      padding:6px 10px; border:1px solid rgba(255,255,255,.12);
-      border-radius: 999px; background: rgba(255,255,255,.03);
+    .btn.secondary{
+      background: transparent; color: var(--text);
+      border-color: rgba(138,180,255,0.35);
+      box-shadow: none;
+    }
+    .btn:hover{ filter: brightness(1.05); text-decoration:none; }
+
+    section{ margin-top: 26px; }
+    section h2{ margin:0 0 14px; font-size: 22px; letter-spacing:.2px; }
+
+    .skills{ display:flex; flex-wrap:wrap; gap:10px; }
+    .skill{
+      padding: 8px 12px; border-radius: 999px;
+      background: linear-gradient(180deg, rgba(126,231,211,0.12), rgba(126,231,211,0.04));
+      border: 1px solid rgba(126,231,211,0.35);
+      color: #bdf5ea; font-weight: 700; letter-spacing:.2px; font-size: 14px;
     }
 
-    .card.project{display:flex; flex-direction:column; gap:10px}
-    .thumb{
-      height:150px; border-radius:12px; overflow:hidden;
-      background: linear-gradient(135deg, rgba(91,141,239,.25), rgba(110,231,183,.18));
-      border:1px solid rgba(255,255,255,.08);
+    .grid{ display:grid; gap:16px; grid-template-columns: repeat(12, 1fr); }
+    .span-4{ grid-column: span 4; }
+    .span-6{ grid-column: span 6; }
+    .span-8{ grid-column: span 8; }
+    .project{
+      display:flex; flex-direction:column; gap:8px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border: 1px solid rgba(138,180,255,0.12);
+      border-radius: 12px; padding:16px; min-height: 140px;
     }
-    .thumb.placeholder{
-      display:grid; place-items:center; color:#e6eeff; font-weight:800; font-size:20px; letter-spacing:1px;
-      text-shadow:0 2px 8px rgba(0,0,0,.25);
-    }
+    .project h3{ margin: 0; font-size:18px; }
+    .meta{ color: var(--muted); font-size: 13px; }
 
-    /* About / Skills */
-    .about{
-      display:grid; gap:18px; grid-template-columns: repeat(12, 1fr);
+    .contact{
+      display:flex; gap:14px; flex-wrap: wrap; align-items:center;
     }
-    .about .bio{grid-column: span 7}
-    .about .stats{grid-column: span 5; display:grid; gap:12px}
-    .stat{
-      border-radius:12px; padding:14px;
-      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-      border:1px solid rgba(255,255,255,.08);
-      display:flex; align-items:center; justify-content:space-between;
+    .icon-link{
+      display:inline-flex; align-items:center; gap:8px; padding:10px 12px; border-radius: 10px;
+      border:1px solid rgba(138,180,255,0.25);
+      background: rgba(255,255,255,0.02);
+      color: var(--text);
     }
-    .chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:8px}
-    .chip{
-      border-radius:999px; padding:6px 10px; font-size:12px; color:#cfe0ff;
-      border:1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.03);
-      transition: transform .2s ease;
-    }
-    .chip:hover{transform: translateY(-2px)}
-    .chip.green{border-color: rgba(110,231,183,.35); background: rgba(110,231,183,.08); color:#e6fff5}
-    .chip.blue{border-color: rgba(91,141,239,.35); background: rgba(91,141,239,.08)}
-    .chip.gold{border-color: rgba(234,179,8,.35); background: rgba(234,179,8,.08); color:#fff5d6}
+    .icon-link:hover{ background: rgba(138,180,255,0.08); text-decoration:none; }
 
-    /* Timeline */
-    .timeline{
-      position:relative; margin-top:10px;
-    }
-    .timeline:before{
-      content:""; position:absolute; left:11px; top:0; bottom:0; width:2px; background: linear-gradient(180deg, rgba(255,255,255,.18), rgba(255,255,255,0));
-    }
-    .t-item{
-      position:relative; padding-left:30px; margin-bottom:18px;
-    }
-    .t-item:before{
-      content:""; position:absolute; left:4px; top:4px; width:16px; height:16px; border-radius:50%;
-      background: linear-gradient(135deg, var(--primary), #7aa6ff);
-      box-shadow: 0 6px 14px rgba(91,141,239,.5);
-      border:1px solid rgba(255,255,255,.4);
-    }
-    .t-title{font-weight:700}
-    .t-sub{color:#a9bbdb; font-size:13px}
-
-    /* Footer */
     footer{
-      padding:28px 0; border-top:1px solid rgba(255,255,255,.08);
-      background: rgba(255,255,255,.02);
-    }
-    .foot{
-      display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap;
-      color:#a7b7d7; font-size:14px;
-    }
-    .social{
-      display:flex; gap:10px; flex-wrap:wrap;
-    }
-    .icon-btn{
-      display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:10px;
-      color:#dbe7ff; border:1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.03);
-      transition: transform .2s ease, background .2s ease;
-    }
-    .icon-btn:hover{transform: translateY(-2px); background: rgba(255,255,255,.06)}
-
-    /* Reveal on scroll */
-    .reveal{opacity:0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease}
-    .reveal.show{opacity:1; transform: translateY(0)}
-
-    /* Responsive */
-    @media (max-width: 980px){
-      .nav-links{display:none}
-      .menu-toggle{display:block}
-      .hero{grid-template-columns: 1fr; padding-top:40px}
-      .hero-img-wrap{order:-1}
-      .grid .card{grid-column: span 6}
-      .about .bio{grid-column: span 12}
-      .about .stats{grid-column: span 12}
-    }
-    @media (max-width: 640px){
-      .grid .card{grid-column: span 12}
-      .hero-ctas{gap:10px}
+      color: var(--muted); font-size: 13px; padding: 20px 0 40px; text-align:center;
     }
 
-    /* Reduced motion */
-    @media (prefers-reduced-motion: reduce){
-      *{animation: none !important; transition: none !important}
+    @media (max-width: 900px){
+      .hero{ grid-template-columns: 1fr; }
+    }
+    @media (max-width: 720px){
+      .span-4{ grid-column: span 12; }
+      .span-6{ grid-column: span 12; }
+      .span-8{ grid-column: span 12; }
+      nav ul{ display:none; }
     }
   </style>
 </head>
 <body>
-  <header id="header">
-    <div class="container nav">
-      <div class="brand">
-        <div class="logo" aria-hidden="true"></div>
-        <span>Aryan Mishra</span>
-      </div>
-      <nav class="nav-links" aria-label="Primary">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#education">Education</a>
-        <a href="#contact">Contact</a>
-        <a class="cta-btn" href="https://github.com/Aryan1411" target="_blank" rel="noopener">GitHub</a>
-      </nav>
-      <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">☰</button>
-    </div>
-  </header>
-
-  <!-- Mobile drawer -->
-  <nav id="mobileMenu" style="display:none; position:fixed; inset:70px 0 auto 0; background:rgba(13,22,40,.98); border-bottom:1px solid rgba(255,255,255,.08); z-index:40; backdrop-filter: blur(8px)">
-    <div class="container" style="padding:16px 20px 20px">
-      <div style="display:grid; gap:8px">
-        <a onclick="closeMenu()" href="#home" class="icon-btn">Home</a>
-        <a onclick="closeMenu()" href="#about" class="icon-btn">About</a>
-        <a onclick="closeMenu()" href="#skills" class="icon-btn">Skills</a>
-        <a onclick="closeMenu()" href="#projects" class="icon-btn">Projects</a>
-        <a onclick="closeMenu()" href="#education" class="icon-btn">Education</a>
-        <a onclick="closeMenu()" href="#contact" class="icon-btn">Contact</a>
-        <a href="https://github.com/Aryan1411" target="_blank" rel="noopener" class="cta-btn" style="margin-top:6px">GitHub</a>
+  <header>
+    <div class="container">
+      <div class="nav">
+        <div class="brand">
+          <span class="dot" aria-hidden="true"></span>
+          <span>Aryan Mishra</span>
+        </div>
+        <nav aria-label="Primary">
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
       </div>
     </div>
-  </nav>
+    </header>
 
-  <main id="home" class="container">
-    <!-- Hero -->
+  <main class="container">
     <section class="hero">
-      <div class="reveal">
-        <span class="tag">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="#6ee7b7" aria-hidden="true"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
-          Data Science • Web Development
-        </span>
-        <h1>Hi, I'm Aryan Mishra</h1>
-        <div class="roles" aria-live="polite">
-          <span id="typed">Data Scientist</span><span class="cursor" aria-hidden="true"></span>
-        </div>
-        <p class="lead">I build intelligent, reliable products at the intersection of data and web. Currently pursuing BS in Data Science and Programming at IIT Madras, with a BSc (Hons) in Physics. I love turning ideas into clean, production-ready experiences.</p>
-        <div class="hero-ctas">
-          <a class="cta-btn" href="#projects">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l4 4-4 4-4-4 4-4zm8 8l-4 4-4-4 4-4 4 4zM8 14l4 4-4 4-4-4 4-4zm8 0l4 4-4 4-4-4 4-4z"/></svg>
-            View Projects
-          </a>
-          <a class="btn-outline" href="https://www.linkedin.com/in/aryan-mishra1411" target="_blank" rel="noopener">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="#0ea5e9" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM0 8h5v16H0zM8 8h4.8v2.2h.1c.7-1.2 2.3-2.4 4.7-2.4 5 0 5.9 3.3 5.9 7.6V24h-5V16c0-1.9 0-4.4-2.7-4.4-2.7 0-3.1 2.1-3.1 4.2V24H8z"/></svg>
-            Connect on LinkedIn
-          </a>
-          <a class="btn-outline" href="mailto:contact@placeholder.example" title="Replace with your email">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="#22c55e" aria-hidden="true"><path d="M12 13L2 6.76V18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6.76z"/><path d="M22 6L12 12 2 6l10-4z"/></svg>
-            Email
-          </a>
+      <div class="card">
+        <h1>Data-driven Developer and Analyst</h1>
+        <p class="subtitle">I build reliable data pipelines, analytical dashboards, and backend services. Strong foundation across Excel, SQL, PostgreSQL, SQLite3, SQLAlchemy, and data analysis.</p>
+        <div class="cta">
+          <a class="btn" href="#projects">View Projects</a>
+          <a class="btn secondary" href="#contact">Get in touch</a>
         </div>
       </div>
-      <div class="hero-img-wrap reveal">
-        <img class="hero-img" alt="Professional portrait placeholder" src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=1400&q=80" />
-        <div class="float-badge">Open-source • Flask • FastAPI • ML</div>
+      <div class="card">
+        <h2 id="about" style="margin-top:0">About</h2>
+        <p>
+          I enjoy transforming raw data into actionable insights and robust applications.
+          From spreadsheet models in Excel to ORM-backed services with SQLAlchemy,
+          I’m comfortable across the stack to help teams make better decisions faster.
+        </p>
+        <p class="meta">Available for data engineering, analytics, and backend roles.</p>
       </div>
     </section>
 
-    <!-- About and Skills -->
-    <section id="about">
-      <div class="section-head">
-        <h2>About</h2>
-        <div class="section-sub">Curious, rigorous, and product-driven</div>
-      </div>
-      <div class="about">
-        <div class="bio reveal">
-          <div class="card" style="padding:20px">
-            <h3>Who I am</h3>
-            <p>I’m a data scientist and full‑stack web developer who cares about clarity and craftsmanship. I enjoy building tools, dashboards, and experiences powered by robust APIs and clean interfaces. I’ve shipped websites that generate websites, educational portals, calculators, and multiple AI‑assisted portfolios.</p>
-            <div class="chips">
-              <span class="chip blue">Python</span>
-              <span class="chip blue">Flask</span>
-              <span class="chip blue">FastAPI</span>
-              <span class="chip blue">JavaScript</span>
-              <span class="chip blue">HTML/CSS</span>
-              <span class="chip green">Pandas</span>
-              <span class="chip green">NumPy</span>
-              <span class="chip green">scikit‑learn</span>
-              <span class="chip green">Data Viz</span>
-              <span class="chip gold">GitHub Pages</span>
-              <span class="chip gold">CI/CD</span>
-            </div>
-          </div>
-        </div>
-        <div class="stats reveal">
-          <div class="stat">
-            <div>
-              <div class="t-title">BS in Data Science & Programming</div>
-              <div class="t-sub">IIT Madras</div>
-            </div>
-            <span class="chip blue">Current</span>
-          </div>
-          <div class="stat">
-            <div>
-              <div class="t-title">BSc (Hons) in Physics</div>
-              <div class="t-sub">Foundations in math & modeling</div>
-            </div>
-            <span class="chip green">Completed</span>
-          </div>
-          <div class="stat">
-            <div>
-              <div class="t-title">Backend APIs</div>
-              <div class="t-sub">Flask • FastAPI • REST</div>
-            </div>
-            <span class="chip">Production‑ready</span>
-          </div>
-        </div>
+    <section id="skills" class="card">
+      <h2>Skills</h2>
+      <div class="skills" aria-label="Skill chips">
+        <!-- Required skills -->
+        <span class="skill">Excel</span>
+        <span class="skill">SQL</span>
+        <span class="skill">PostgreSQL</span>
+        <span class="skill">SQLite3</span>
+        <span class="skill">SQLAlchemy</span>
+        <span class="skill">Data Analysis</span>
+        <!-- Complementary stack -->
+        <span class="skill">Python</span>
+        <span class="skill">Pandas</span>
+        <span class="skill">ETL</span>
+        <span class="skill">APIs</span>
+        <span class="skill">Visualization</span>
       </div>
     </section>
 
-    <section id="skills">
-      <div class="section-head">
-        <h2>Skills</h2>
-        <div class="section-sub">Tools I use to turn ideas into products</div>
-      </div>
-      <div class="grid">
-        <div class="card reveal" style="grid-column: span 6">
-          <h3>Data Science</h3>
-          <p>Exploratory analysis, feature engineering, model training and evaluation. Comfortable with notebooks and production pipelines.</p>
-          <div class="chips">
-            <span class="chip green">Python</span>
-            <span class="chip green">Pandas</span>
-            <span class="chip green">NumPy</span>
-            <span class="chip green">scikit‑learn</span>
-            <span class="chip green">Jupyter</span>
-            <span class="chip green">Data Cleaning</span>
-          </div>
-        </div>
-        <div class="card reveal" style="grid-column: span 6">
-          <h3>Web Development</h3>
-          <p>End‑to‑end development from API to UI with attention to accessibility, performance, and deployment.</p>
-          <div class="chips">
-            <span class="chip blue">Flask</span>
-            <span class="chip blue">FastAPI</span>
-            <span class="chip blue">JavaScript</span>
-            <span class="chip blue">HTML/CSS</span>
-            <span class="chip blue">GitHub Pages</span>
-            <span class="chip blue">REST APIs</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Projects -->
     <section id="projects">
-      <div class="section-head">
-        <h2>Selected Projects</h2>
-        <div class="section-sub">Real, shipped work with links</div>
-      </div>
+      <h2 style="margin: 20px 0 12px">Highlighted Projects</h2>
       <div class="grid">
-        <article class="card project reveal">
-          <div class="thumb placeholder">WEB CREATOR</div>
-          <h3>Website Generation Tool</h3>
-          <p>Describe a prompt, get a full website deployed to GitHub Pages automatically.</p>
-          <div class="actions">
-            <a class="pill" href="https://aryan1411.github.io/web_creator/" target="_blank" rel="noopener">Open Project ↗</a>
-            <span class="pill">Stack: JS • GitHub Pages</span>
-          </div>
+        <article class="project span-6">
+          <h3>Sales Analytics Dashboard</h3>
+          <p>Modeled Excel CSV exports into a normalized PostgreSQL schema, built SQL views, and delivered interactive insights via a lightweight web UI.</p>
+          <span class="meta">PostgreSQL · SQL · Data Analysis</span>
         </article>
-
-        <article class="card project reveal">
-          <div class="thumb placeholder">SCHOOL SITE</div>
-          <h3>School Website (Sample)</h3>
-          <p>A formal, informative school website structure with clean UX and accessible navigation.</p>
-          <div class="actions">
-            <a class="pill" href="https://aryan1411.github.io/wpcs/" target="_blank" rel="noopener">Open Project ↗</a>
-            <span class="pill">Stack: HTML • CSS • JS</span>
-          </div>
+        <article class="project span-6">
+          <h3>ORM-powered Inventory API</h3>
+          <p>Designed a RESTful backend using SQLAlchemy with SQLite3 for rapid prototyping, later migrated to PostgreSQL with zero-downtime migrations.</p>
+          <span class="meta">Python · SQLAlchemy · SQLite3 → PostgreSQL</span>
         </article>
-
-        <article class="card project reveal">
-          <div class="thumb placeholder">TOOLS</div>
-          <h3>Scientific Calculator & To‑Do List</h3>
-          <p>Combination of a precise calculator and a minimal task manager, available on the web.</p>
-          <div class="actions">
-            <a class="pill" href="https://aryan1411.github.io/scietific-calculator/" target="_blank" rel="noopener">Open Project ↗</a>
-            <span class="pill">Stack: JS • UI</span>
-          </div>
+        <article class="project span-4">
+          <h3>Data Quality Toolkit</h3>
+          <p>Reusable SQL checks and Python helpers to validate datasets before analytics.</p>
+          <span class="meta">SQL · Pandas</span>
         </article>
-
-        <article class="card project reveal">
-          <div class="thumb placeholder">DOCTOR</div>
-          <h3>Portfolio — Doctor</h3>
-          <p>AI‑generated portfolio tailored for medical professionals.</p>
-          <div class="actions">
-            <a class="pill" href="https://aryan1411.github.io/abhisek/" target="_blank" rel="noopener">Open Project ↗</a>
-            <span class="pill">Design • Landing</span>
-          </div>
-        </article>
-
-        <article class="card project reveal">
-          <div class="thumb placeholder">COOKING</div>
-          <h3>Portfolio — Cooking Tutor</h3>
-          <p>Warm, instructive portfolio website for culinary lessons.</p>
-          <div class="actions">
-            <a class="pill" href="https://aryan1411.github.io/priyanka/" target="_blank" rel="noopener">Open Project ↗</a>
-            <span class="pill">Design • Content</span>
-          </div>
-        </article>
-
-        <article class="card project reveal">
-          <div class="thumb placeholder">GYM</div>
-          <h3>Portfolio — Gym Instructor</h3>
-          <p>Bold fitness‑focused landing page for personal training services.</p>
-          <div class="actions">
-            <a class="pill" href="https://aryan1411.github.io/hero2/" target="_blank" rel="noopener">Open Project ↗</a>
-            <span class="pill">Hero • CTA</span>
-          </div>
-        </article>
-
-        <article class="card project reveal">
-          <div class="thumb placeholder">DRIVING</div>
-          <h3>Portfolio — Driving Instructor</h3>
-          <p>Clear, trustworthy website for driving lessons and bookings.</p>
-          <div class="actions">
-            <a class="pill" href="https://aryan1411.github.io/jyoti/" target="_blank" rel="noopener">Open Project ↗</a>
-            <span class="pill">Booking • Contact</span>
-          </div>
-        </article>
-
-        <article class="card project reveal">
-          <div class="thumb placeholder">APIs</div>
-          <h3>Flask & FastAPI Apps (Assorted)</h3>
-          <p>Multiple backend services and APIs built in Python, plus front‑end integrations and deployments.</p>
-          <div class="actions">
-            <a class="pill" href="https://github.com/Aryan1411" target="_blank" rel="noopener">Browse on GitHub ↗</a>
-            <span class="pill">Python • REST • Deploy</span>
-          </div>
+        <article class="project span-8">
+          <h3>Automated ETL for Finance</h3>
+          <p>Scheduled ingestion from spreadsheets, transformed with Python, and materialized analytics tables for BI tools.</p>
+          <span class="meta">Excel · ETL · SQL</span>
         </article>
       </div>
     </section>
 
-    <!-- Education -->
-    <section id="education">
-      <div class="section-head">
-        <h2>Education</h2>
-        <div class="section-sub">Grounded in science, focused on products</div>
+    <section id="contact" class="card" style="margin-top:20px">
+      <h2>Contact</h2>
+      <div class="contact">
+        <a class="icon-link" href="mailto:contact@example.com" aria-label="Email Aryan">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M3 5h18v14H3z" stroke="currentColor" stroke-width="1.6" />
+            <path d="M3 7l9 6 9-6" stroke="currentColor" stroke-width="1.6" />
+          </svg>
+          contact@example.com
+        </a>
+        <a class="icon-link" href="https://www.instagram.com/aryanmishra1411/" target="_blank" rel="noopener noreferrer" aria-label="Instagram profile">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.4"/>
+            <circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.4"/>
+            <circle cx="17.2" cy="6.8" r="1.2" fill="currentColor"/>
+          </svg>
+          Instagram
+        </a>
+        <a class="icon-link" href="#skills">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+          View skills
+        </a>
       </div>
-      <div class="card reveal" style="padding:20px">
-        <div class="timeline">
-          <div class="t-item">
-            <div class="t-title">BS in Data Science and Programming — IIT Madras</div>
-            <div class="t-sub">Currently studying | Focus: Statistics, Machine Learning, Data Engineering</div>
-          </div>
-          <div class="t-item">
-            <div class="t-title">BSc (Hons) in Physics</div>
-            <div class="t-sub">Completed | Focus: Mathematical methods, modeling, problem solving</div>
-          </div>
-        </div>
-      </div>
+      <p class="meta" style="margin-top:10px">Feel free to reach out for collaborations, consulting, or opportunities.</p>
     </section>
 
-    <!-- Contact -->
-    <section id="contact">
-      <div class="section-head">
-        <h2>Contact</h2>
-        <div class="section-sub">Let’s build something valuable</div>
-      </div>
-      <div class="grid">
-        <div class="card reveal" style="grid-column: span 6">
-          <h3>Get in touch</h3>
-          <p>For collaborations, freelance work, or open‑source, feel free to reach out. I’m always excited to discuss data, APIs, and user experience.</p>
-          <div class="actions">
-            <a class="pill" href="mailto:contact@placeholder.example" title="Replace with your email">Email</a>
-            <a class="pill" href="https://github.com/Aryan1411" target="_blank" rel="noopener">GitHub</a>
-            <a class="pill" href="https://www.linkedin.com/in/aryan-mishra1411" target="_blank" rel="noopener">LinkedIn</a>
-          </div>
-        </div>
-        <div class="card reveal" style="grid-column: span 6">
-          <h3>Availability</h3>
-          <p>I’m open to internships, part‑time roles, and project‑based collaborations. Comfortable with fast iterations and clear communication.</p>
-          <div class="chips">
-            <span class="chip">Remote‑friendly</span>
-            <span class="chip">Open Source</span>
-            <span class="chip">Mentoring</span>
-            <span class="chip">Consulting</span>
-          </div>
-        </div>
-      </div>
-    </section>
+    <footer>
+      <p>© <span id="year"></span> Aryan Mishra. All rights reserved.</p>
+    </footer>
   </main>
 
-  <footer role="contentinfo">
-    <div class="container foot">
-      <div>© <span id="year"></span> Aryan Mishra. MIT Licensed.</div>
-      <div class="social">
-        <a class="icon-btn" href="https://github.com/Aryan1411" target="_blank" rel="noopener" aria-label="GitHub">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="#cbd5e1" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.1.82-.26.82-.58v-2.2c-3.34.73-4.04-1.6-4.04-1.6-.55-1.4-1.35-1.77-1.35-1.77-1.1-.77.08-.76.08-.76 1.22.09 1.87 1.26 1.87 1.26 1.08 1.86 2.83 1.32 3.52 1.01.11-.79.42-1.32.76-1.62-2.67-.3-5.47-1.33-5.47-5.92 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.4 11.4 0 0 1 6 0c2.3-1.55 3.3-1.23 3.3-1.23.66 1.65.24 2.87.12 3.17.77.84 1.24 1.91 1.24 3.22 0 4.6-2.81 5.61-5.49 5.9.43.37.81 1.1.81 2.23v3.3c0 .32.22.69.82.58A12 12 0 0 0 12 .5z"/></svg>
-          GitHub
-        </a>
-        <a class="icon-btn" href="https://www.linkedin.com/in/aryan-mishra1411" target="_blank" rel="noopener" aria-label="LinkedIn">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="#38bdf8" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM0 8h5v16H0zM8 8h4.8v2.2h.1c.7-1.2 2.3-2.4 4.7-2.4 5 0 5.9 3.3 5.9 7.6V24h-5V16c0-1.9 0-4.4-2.7-4.4-2.7 0-3.1 2.1-3.1 4.2V24H8z"/></svg>
-          LinkedIn
-        </a>
-        <a class="icon-btn" href="#home" aria-label="Back to top">↑ Top</a>
-      </div>
-    </div>
-  </footer>
-
   <script>
-    // Header shadow on scroll
-    const header = document.getElementById('header');
-    const onScroll = () => {
-      header.classList.toggle('scrolled', window.scrollY > 12);
-    };
-    window.addEventListener('scroll', onScroll);
-    onScroll();
+    // Lightweight enhancements
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Mobile menu
-    const menuToggle = document.getElementById('menuToggle');
-    const mobileMenu = document.getElementById('mobileMenu');
-    function closeMenu(){
-      mobileMenu.style.display = 'none';
-      menuToggle.setAttribute('aria-expanded','false');
-    }
-    menuToggle.addEventListener('click', () => {
-      const isOpen = mobileMenu.style.display === 'block';
-      mobileMenu.style.display = isOpen ? 'none' : 'block';
-      menuToggle.setAttribute('aria-expanded', String(!isOpen));
-    });
-    window.addEventListener('resize', () => {
-      if (window.innerWidth > 980) closeMenu();
-    });
-
-    // Intersection reveal
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('show');
-          observer.unobserve(e.target);
+    // Smooth scrolling for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const id = a.getAttribute('href').slice(1);
+        const el = document.getElementById(id);
+        if(el){
+          e.preventDefault();
+          el.scrollIntoView({behavior:'smooth', block:'start'});
+          history.pushState(null,'','#'+id);
         }
       });
-    }, {threshold: .12});
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-    // Typed text effect
-    const roles = ["Data Scientist", "Web Developer", "Problem Solver"];
-    const typedEl = document.getElementById('typed');
-    let roleIdx = 0, charIdx = 0, typing = true;
-    function typeLoop(){
-      const current = roles[roleIdx];
-      if (typing){
-        charIdx++;
-        if (charIdx > current.length){
-          typing = false;
-          setTimeout(typeLoop, 1100);
-          return;
-        }
-      } else {
-        charIdx--;
-        if (charIdx === 0){
-          typing = true;
-          roleIdx = (roleIdx + 1) % roles.length;
-        }
-      }
-      typedEl.textContent = current.slice(0, charIdx);
-      setTimeout(typeLoop, typing ? 80 : 40);
-    }
-    typeLoop();
-
-    // Year
-    document.getElementById('year').textContent = new Date().getFullYear();
+    });
   </script>
-
-  <!-- Quick note for replacing hero image:
-       Swap the src on .hero-img with your own hosted image link. Recommended size ~1400px width. -->
 </body>
 </html>
